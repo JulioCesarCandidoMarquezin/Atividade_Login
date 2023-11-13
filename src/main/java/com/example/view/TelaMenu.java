@@ -1,7 +1,6 @@
-package com.example;
+package com.example.view;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
 
 public class TelaMenu extends JFrame{
 
@@ -12,13 +11,18 @@ public class TelaMenu extends JFrame{
 
         JMenu menuCadastro = new JMenu("Cadastro");
         JMenuItem itemCadastroProdutos = new JMenuItem("Cadastro de Produtos");
-        itemCadastroProdutos.addActionListener(this::openCadProduto);
+        itemCadastroProdutos.addActionListener((e) -> new TelaCadProduto());
         menuCadastro.add(itemCadastroProdutos);
+        JMenuItem itemCadastroClientes = new JMenuItem("Cadastro de Produtos");
+        itemCadastroProdutos.addActionListener((e) -> new TelaCadCliente());
+        menuCadastro.add(itemCadastroClientes);
         menuBar.add(menuCadastro);
 
         JMenu menuConsulta = new JMenu("Consulta");
         JMenuItem itemConsultaProdutos = new JMenuItem("Consulta de Produtos");
         menuConsulta.add(itemConsultaProdutos);
+        JMenuItem itemConsultaClientes = new JMenuItem("Consulta de Produtos");
+        menuConsulta.add(itemConsultaClientes);
         menuBar.add(menuConsulta);
 
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -29,10 +33,5 @@ public class TelaMenu extends JFrame{
         setContentPane(panel);
         setTitle("Menu");
         setJMenuBar(menuBar);
-    }
-
-    private void openCadProduto(ActionEvent event)
-    {
-        new TelaCadProduto();
     }
 }

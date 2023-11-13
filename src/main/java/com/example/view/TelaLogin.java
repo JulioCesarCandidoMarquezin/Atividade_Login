@@ -1,6 +1,9 @@
-package com.example;
+package com.example.view;
 
 import javax.swing.*;
+
+import com.example.DB;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.sql.Connection;
