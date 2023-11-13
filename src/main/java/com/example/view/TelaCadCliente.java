@@ -101,17 +101,23 @@ public class TelaCadCliente extends JFrame {
         Cliente cliente = new Cliente(campoNome.getText(), campoRg.getText(), campoCpf.getText(),
                 campoTelefone.getText(), campoEmail.getText());
 
-                System.out.println(cliente);
-
         try {
-            PreparedStatement ps = conn.prepareStatement("INSERT INTO clientes (nome, rg, cpf, telefone, email) VALUES (?,?,?,?,?)");
+            PreparedStatement ps = conn.prepareStatement("INSERT INTO cadCliente (nome, rg, cpf, telefone, email) VALUES (?,?,?,?,?)");
             ps.setString(1, cliente.getNome());
             ps.setString(2, cliente.getRg());
             ps.setString(3, cliente.getCpf());
             ps.setString(4, cliente.getTelefone());
             ps.setString(5, cliente.getEmail());
             ps.executeUpdate();
+
             JOptionPane.showMessageDialog(this,"Cliente cadastrado com sucesso");
+
+            campoNome.setText("");
+            campoRg.setText("");
+            campoCpf.setText("");
+            campoTelefone.setText("");
+            campoEmail.setText("");
+
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(this,"Erro ao cadastrar cliente");
         }
@@ -124,21 +130,20 @@ public class TelaCadCliente extends JFrame {
         cliente.setNome(campoNome.getText());
 
         try {
-            PreparedStatement ps = conn.prepareStatement("SELECT * FROM clientes WHERE nome = ?);");
+            PreparedStatement ps = conn.prepareStatement("SELECT * FROM cadCliente WHERE nome = ?");
             ps.setString(1, cliente.getNome());
             ResultSet rs = ps.executeQuery();
 
             if(rs.next()) {
-                campoNome.setText(rs.getString(2));
-                campoRg.setText(rs.getString(3));
-                campoCpf.setText(rs.getString(4));
-                campoTelefone.setText(rs.getString(5));
-                campoEmail.setText(rs.getString(6));
+                campoNome.setText(rs.getString(1));
+                campoRg.setText(rs.getString(2));
+                campoCpf.setText(rs.getString(3));
+                campoTelefone.setText(rs.getString(4));
+                campoEmail.setText(rs.getString(5));
             }
 
-            JOptionPane.showMessageDialog(this,"Cliente cadastrado com sucesso");
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(this,"Erro ao cadastrar cliente");
+            JOptionPane.showMessageDialog(this,"Erro ao consultar cliente");
         }
     }
 }

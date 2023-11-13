@@ -65,7 +65,7 @@ public class TelaCadUsuario extends JFrame {
 
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
-        setSize(300, 200);
+        setSize(300, 250);
         setVisible(true);
         setResizable(false);
         setContentPane(panel);

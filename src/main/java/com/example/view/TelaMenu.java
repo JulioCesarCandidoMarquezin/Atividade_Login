@@ -13,15 +13,15 @@ public class TelaMenu extends JFrame{
         JMenuItem itemCadastroProdutos = new JMenuItem("Cadastro de Produtos");
         itemCadastroProdutos.addActionListener((e) -> new TelaCadProduto());
         menuCadastro.add(itemCadastroProdutos);
-        JMenuItem itemCadastroClientes = new JMenuItem("Cadastro de Produtos");
-        itemCadastroProdutos.addActionListener((e) -> new TelaCadCliente());
+        JMenuItem itemCadastroClientes = new JMenuItem("Cadastro de Clientes");
+        itemCadastroClientes.addActionListener((e) -> new TelaCadCliente());
         menuCadastro.add(itemCadastroClientes);
         menuBar.add(menuCadastro);
 
         JMenu menuConsulta = new JMenu("Consulta");
         JMenuItem itemConsultaProdutos = new JMenuItem("Consulta de Produtos");
         menuConsulta.add(itemConsultaProdutos);
-        JMenuItem itemConsultaClientes = new JMenuItem("Consulta de Produtos");
+        JMenuItem itemConsultaClientes = new JMenuItem("Consulta de Clientes");
         menuConsulta.add(itemConsultaClientes);
         menuBar.add(menuConsulta);
 
