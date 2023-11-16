@@ -78,7 +78,7 @@ public class TelaCadCliente extends JFrame {
         setBackground(Color.decode("#ccffff"));
         setContentPane(panel);
         setSize(700, 250);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
         setVisible(true);
         setTitle("Cadastro de Clientes");
