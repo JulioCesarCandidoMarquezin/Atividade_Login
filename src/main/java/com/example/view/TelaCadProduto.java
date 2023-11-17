@@ -32,7 +32,10 @@ public class TelaCadProduto extends JFrame{
         labelTitle.setFont(new Font("Arial", Font.BOLD, 16));
         panel.add(labelTitle);
 
-        JLabel labelIcon = new JLabel(new ImageIcon(new ImageIcon(getClass().getResource("/assets/IconCadProduto.png")).getImage().getScaledInstance(200, 200, Image.SCALE_SMOOTH)));
+        ImageIcon cadIcon = new ImageIcon(getClass().getResource("/assets/IconCadProduto.png"));
+        Image imageResized = cadIcon.getImage().getScaledInstance(200, 200, Image.SCALE_SMOOTH);
+        cadIcon.setImage(imageResized);
+        JLabel labelIcon = new JLabel(cadIcon);
         labelIcon.setBounds(250, 70, 200, 200);
         panel.add(labelIcon);
 
@@ -95,9 +98,10 @@ public class TelaCadProduto extends JFrame{
             txtProduto.setText("");
             txtPreco.setText("");
             txtEstoque.setText("");
-        }
-        catch (SQLException e) {
+        } catch (SQLException e) {
             JOptionPane.showMessageDialog(this, "Algo deu errado");
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Você deve inserir apenas números nos campos de preço e estoque");
         }
     }
 
@@ -112,8 +116,8 @@ public class TelaCadProduto extends JFrame{
             ResultSet rs = ps.executeQuery();
 
             if(rs.next()) {
-                txtPreco.setText(rs.getString(3));
-                txtEstoque.setText(rs.getString(4));
+                txtPreco.setText(rs.getString(2));
+                txtEstoque.setText(rs.getString(3));
             }
         }
         catch (SQLException e) {

@@ -20,8 +20,10 @@ public class TelaMenu extends JFrame{
 
         JMenu menuConsulta = new JMenu("Consulta");
         JMenuItem itemConsultaProdutos = new JMenuItem("Consulta de Produtos");
+        itemConsultaProdutos.addActionListener((e) -> new TelaCadProduto());
         menuConsulta.add(itemConsultaProdutos);
         JMenuItem itemConsultaClientes = new JMenuItem("Consulta de Clientes");
+        itemConsultaClientes.addActionListener((e) -> new TelaCadCliente());
         menuConsulta.add(itemConsultaClientes);
         menuBar.add(menuConsulta);
 
