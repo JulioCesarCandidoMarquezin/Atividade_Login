@@ -116,8 +116,8 @@ public class TelaCadProduto extends JFrame{
             ResultSet rs = ps.executeQuery();
 
             if(rs.next()) {
-                txtPreco.setText(rs.getString(2));
-                txtEstoque.setText(rs.getString(3));
+                txtPreco.setText(rs.getString(3));
+                txtEstoque.setText(rs.getString(4));
             }
         }
         catch (SQLException e) {

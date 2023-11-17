@@ -135,11 +135,11 @@ public class TelaCadCliente extends JFrame {
             ResultSet rs = ps.executeQuery();
 
             if(rs.next()) {
-                campoNome.setText(rs.getString(1));
-                campoRg.setText(rs.getString(2));
-                campoCpf.setText(rs.getString(3));
-                campoTelefone.setText(rs.getString(4));
-                campoEmail.setText(rs.getString(5));
+                campoNome.setText(rs.getString(2));
+                campoRg.setText(rs.getString(3));
+                campoCpf.setText(rs.getString(4));
+                campoTelefone.setText(rs.getString(5));
+                campoEmail.setText(rs.getString(6));
             }
 
         } catch (SQLException ex) {
